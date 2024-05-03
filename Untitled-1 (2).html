@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;70");
+      @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      body {
+        /* background: rgb(204,180,57);
+background: -moz-radial-gradient(circle, rgba(204,180,57,1) 0%, rgba(187,30,62,1) 100%);
+background: -webkit-radial-gradient(circle, rgba(204,180,57,1) 0%, rgba(187,30,62,1) 100%);
+background: radial-gradient(circle, rgba(204,180,57,1) 0%, rgba(187,30,62,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ccb439",endColorstr="#bb1e3e",GradientType=1); */
+background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYWFRgWFhYZGBgaGBoaGhoaHRgeGBgZGBgaHBgcHBwcIS4lHh4rIRgYJjgmKy8xNTU1HCQ7QDszPy40NTEBDAwMEA8QHxISHzQsJCs0NjQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0MTQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIAKgBLAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAAIDBAYBBwj/xABBEAACAAMFBAcGBAUDBAMAAAABAgADEQQSITFBBVFhcQYigZGhsfATMkLB0eFSYnLxBxQjgqIzU5IVNMLSQ3Oy/8QAGQEAAwEBAQAAAAAAAAAAAAAAAAIDAQQF/8QAKhEAAgICAgEDAwMFAAAAAAAAAAECEQMhEjFBIlFhBBMycYGRBRQzocH/2gAMAwEAAhEDEQA/ANQY7SIlrEqoSQAO6IFRKkW7NZGc4DDU6CLtj2Yc3/4/WCqqAKAUikY+4jkVbNY1THM7z8osmOMtc4dD0IIQoQjhMACbKB01I7tTbEizpfnTFQaVOLHcq5k8BCE0MoYZEAg8CKiFkais4rhAy3yQPiA5mkX7RaDkoqd2QH6j8hAbakuawJv9gAAHfEpMZAe1qR6wjM7Rl4muX0y8PKDkyY6e/wC7qQPMfMQF2jZy8678N0Vpxr6rCRVsdukQWN7pz7N8XH2RMtBoqhE1c+92Qb2PsZFobor61jSSLMBiO7Q/SLRgl2SlJvoy9i6GSlGIvnexJi3ZujSIesMNCMI1ckLyO6LIQRRq9MX5QGTZWHUw7Ip269JF5xQVpXTHjGhQkHq4rru7DFnquCKAg5g/MQkoDxmeXbQtoqaRnLQSzR6XtvoYkyrSm9m27ND2adkYXaOyJ1nNJiED8YxQ9v1iLi0VTTD2ytoq0pZczNRdU710HMRTtNnRSWGW/LxgXKm0g7JZZtmKVA69K9hbzEI0WjlaVAu0bRCKWxami4k+MARt4zHCBCKmm9u6Df8A0CexNxKJWl4keAzMFLF0VWV182I19YQ0Ul2hJZJPpgBNjU6zVJOOOJi1ZtnXmVBqQIMT5cwnBVI7YsyUEoF3oDTDhGNilTpBPC9VcgAijsoIylpnF+op6vxHfw5RPtG2ma5u1u44795EPsVl4RphY2dZqAQbQADH9ohs0mkD9pWws/sUPWbMj4V1PM/KMA7abQ09/ZS8EU0dhrTNR8zBaXZhKQhBVqUHOHbPsiy0CqNIIy0pic/KAwHWGxeyUsxvO2LHidBCmTzurBNrusR+zTfAaef9Kdkoo9tLW6KgOo90VNAwGmOBHERmL0et7U2cJkt1FOsrDvGHjHmE/Y1oQ3WkzK8FLA8ag0MWg7Wws+hLNYS+QoN5y+8GrNZFQYCp3nOLASmWUKHUUiLdnIUKOVhjDhEdEKEYAILVaUloXdgiKKlmIAA5mMFtbprNm3lsSUQYGe4oP7EOfMxN0m2VNmvfmlnVSSsr4AoODAD32pStcRpA+WouXQOru+0c2XO46SODN9W4y4pb+fP6GRmozOXdndj8T0aawvUoUFQiHeI9I6K2wvZUQdVkb2Z6166FFV63xG5THfGG2qiWcXixuaKGo5JapvGtWTD3eMR9COlVy0iVcpLmEAKgN1HBahA0BDEHPSGjJyVorgnyfLwerGUAKCK85KgwQcQNttqRBV3VB+YgQzO1bA9uswIjPyJQV6HDQHeK4Y8sIL2jpBY60M4DmCB2E5xX6jG8jK6nUGohY9jNOgtYkwglLECbO90AVqNN/LjBSVU/lHj9oukSbJ6DLM8NOcWEl/iNeGkMRBphEyNoc/A8oYWt7HiGsmNRgd/1hwjojBqGCbo2B8DDpiKwIYAg5g0IiC0zhlgdMYqtOYA9XLUmJyaRSEJS2Ads9EpDmsp1lOclr1GPLTs7ozVr2dNky2RlN8uKFOsCApxFI29pvNiyqRwP1ED5Di91DdP4WGHZ9og2mXWP5MB/06YKX3ddwJZYvrtWeiN/VLBboF6jZnjjkI0nSFr6XHFDow0MecbQd0R1atC69bTWmMC26FlHirCk3pdOH4O4/WKtmtc61vV26iYkDBSdAd8AJMtnYAYknARtrPJWzygmF7NjvJh2lERbIks4BpBSyWeBMi0AtWD1mmClYmaMt9oEtGYmlAYy/Ri0Bnd2PXY1+kP6W20nqDXPsgb0XQG0y65VJ50UkDvpFFH0mM9OkSqCpz8o6wMW5BDDqkceEP8AZmJtBYOMhjDlsW8wQCGO3IKCykLNTWHiWd8WrkcpG0ZZuoYzRwtHCY6iQi+NBHLphPHZbE46QAPEIx2FSACGdJDChEYbp3ZZkiWHs8kuzNdJUVCgjNlHnG+McZISWOMuyWTDDJ+Ss8M2Z0Dtdpa/aGMtTocXI5ZLBHa/Q9rGtUF6Xq3xKfzfWPXxLAiOZLDAggEHAg5GKR9JmXDzhxWjzTaXTJpGz5TAXpzEygTiAZebtvwphqTGnsOz1SWpbruVBd2xZmIqcdBXQYQO2x0JVyiL/pCcs27ncy9oo/KwA5HnhpGFWpEZrZ0/T8lBJ9+TPbQ2cjggoD2RlLZYGkuHli6QRUD3XWuOG+nlHoM5Vvha5wM2zZ1QiuRPdEWq2dXaorWPqmrY/m3cDugxLMCwhQAsQVOR57xFyS1MsRu3cvpHTGSkckoOIRRolpWKktwdY5Nt4Bur1m3D1hzhxG0XGmXR1jhv+sDLVtB3BuURNZjZf274BvtZ580y7Ognspo7kkWaUdzMP9RvyrE1vslqs8t5yulpmKCVUynqNyylR6LT9JJ1JjG/Y1RvsC7VnzJzeyszOqI9Jsx76zGdlqqovvZFSTQZihED1strnM6LOmMU/NdAu4GtMznmTBSxWOaLIk9C020o7TWlv1f6jE+1Uj8QBIHIQb2NtlLQpKLcevXQi6yPqGGdeMRabZ0qUYxpb/4YxjaUNP5iYtMCD1svyvhBuwtaXVbxSYL2LAXCo1JGFDwoecXttzUpdIVpjVuL8ZO/eFGZMdsEp5eOYI6w+fOEcWiilF+KZBtFWwBqRxzgGrmW5N0OhwdGAIdNVIOo0MbGbKvY9sCbXYA2WcJtbH01TK8rozIZfa2Wi38aGpXiu9cdIye3rPPR6TEK7jmp5EYRp7AZsp7svG8cVPunjwPGNI7h6o6BlOYNCD2GKpqW/JzyTizyGUzA5waS33Fx3Qe2t0ORqtIa434GqUPI5r4xjNqy5kg3JyMu5vgb9LZGBxsW0UrZNvuTDrNVWDKaEGoMEOjuxntbMEIRVAq7AlbxNAopmdc4u27ohaVcojLM4DqHuY08YPgBlg6TTJLhz1h8S/iXUc49La1rQGuBAI5EVjy3ZmyCloCWhGW6C5Rh74XIA6gkjKNciTZzXipVT2YQsnQB47SSJVtamILJs1VAqKnwi40tBmFEYrM0RmaKRFe4GLAmSxqvhEntV/EI0DX+zjoUQ6OR0khrphhnEQeJjEFpmogvOwVRiSTQYQAWBCjO2vpfIVlSUHtExqES5SklVrS8zNRUXP3iMo0CTAcoAHGOR2OQAcMNMJ5gBAJAJyBIqeW+HCACCeOqYAvaSJqrQkNXsopNTwwjRTFqDyMAglHY6hT4kRLJ2i+J6ZSR/wCvjrgONAT5AxV28SzooFSSABxJoIt2aVemlzkimn6mwHgG74rqAZ985S1Zu0i6P/0T2RF9F13+xS211UCVygTsHbJxDYpfIG8AGgPLDxhvTG3FUdgaGlF/UxovnWKGwJVwSq41K+cEXTtGyjcWmbGTfmYjqIddTyHzixb9jpMkvKDOl+lXQ9fAg56g0oRuh8l4to0dN2cKjQE6Mf0E/lHoryyxXQTULVWYu/OjDQjkToK1ivbtmy5ygOtaGqkEq6NSlUZaMppXEGKy7GbBTPmso0LDEbiQoJ3ZxgwzZ0ktMmMtLhfAjI0VVb/JWi5a9iSJjB3lozjJqUb/AJDGLdlswRQiAKoFAAMInIjUgb2CpWyZSHqIqneBie2Jv5QbouAQ67BSN5MDzLKVru04QNKGsahpcDLZYzmsSlD2KxmnplFbOo61Mch25xMiQ1QQAGwOZ74mWMSEm7ZwIIa0pWwKgjcQCPGJBDkIEaKJJaqKAAAY0AAGH3gdaRdYOMsjyi7aZnVPMDwB+cRiXelAcIxgSPZUmAX1Bpip1Fdx0hj2ag6uelcu0Q/Zz1ShzGBiS9jGgZ+dJtM1GUT0lODQhUvgbsSR5RHYdisEKWm7NNf9QM9Txphd7IN26zmodPeH+Q3GJZUwMtfDdGfAAg7OaUv9C6+oSYASR+V8z21gWOk0nETLO6uDRhdGBHZGndKgrWmqn8LRStmykmEM4F4qK84yjT0EwF2r0ms0hrjzL0z/AGpYLzT/AGJUjtpATpHInNMPt7Y0uUQ1yRZwVmOgoWvNUsxGAqoUCvGBexrDPdLllswsck//ACzBftDg6hDgGOdXJPCOkkXNrdL54AoiWVW9wzqzJ7nclnlnE827IBzNkbQtThxNmJhS9PK37rVBKypYCyxQ0oTU1xyjb7I6LSpLF6F5je9MmEtMb+45DgKDhBsIAwoIAM70X6KLZVK3nZmIZ2c1LECmWQFNI0yoAMI7FDa+2ZNmS/NcLuGbNyGsaotukZKSirZdmzAqlmIAGJJIAHMmMbtXpwiv7Ozo01zUAga6UXdxNIG2m2WnaRConsbOD7x99uIjT7C6NSrOvVXrascWPMxXjGK3t+xK5TetL39wRszYU2bOW02lzfFCqAm6hpjT6RtEFBSEi4YR1mpE3JvspGKiqRwxTtNnVqmgBIpWJnc6YxGZlYRpMdNroDLZnQOWIINKXakila17xA+xzEZJrgggvdqMcUGI7CSDxjUMlYzPSO0XcBliO3WI5IqKs6sMnJ0YnpDZGn4LX3qkgbhgOUXLBLcIouYgg1zApGg2QouKtMcyd5OJ+nZBQWcZ5GBY7SB5Wm6KqWcOFN5kYZFSbp4MuRHPHcRFpGIwOcQ2khQW74zFo29NnzlkWYBjXrucgtaEg6Cmu/KLxxydtI5pZEqTZuZMwHI1+0ToYGbM2V7JLq0NSWY6sxpU+Ai4jUzhVdbNdeC2sdMRo0OBjRTkSgRGgxiasBo0rDGSJQIinvdVm/CpPcKxjBAPatkcNfXEUGWcUP5lhmCO+LsjbjswUoprxI+sXWmKc0HZElxltDSuLqQKS1AxYR6w+fZ5RxIp2H5RSdVFSjqSAerUVy3ZwNUC30K1TarhrU95w8KRckNQU3UEA0tVSK7lw3UAwgjLnQqZtEr9Q3l7YmvhhURBfqIYCQcILAupM0is4KNUZHOOB4cz1EbZgydMBERJtJQKNn58Y44iq6Ywtm0eiTLKjEFlBIwBIFQDnDggGAh5jhjqJDaQ1z1hyhwipbpLObtSBTGmBPCug5QAYbpZ/EJlmNZrEhmTqlS1MFbIhV+IjecOcRdGeiE12M+3OZrsQbrEsE4EnPkMI2dj2DJluXCKHal5qYmmAqc4KKgHCNUmujHFPsgSUktdFAGegEZDpFtm0KysJdJbNdl+0DBS2FGZB1mOOCkY/hwrG4qM60EAbVsW/PMx5jOCCFUihRTmiMDRFOpAvH8VIw0t7FZvZC/O9s9WvPQKL1cUCj3bpFKHEUxi2zxBLKoAoW6AKAAUAA0AiUEGABhTUH6Q1nGTCkOZSMR3RGXrgYAI2J1y8uRgHtjZzzGXrC4D/cOz5waL0y7jFSdMrl3boWUVLseMpR6K0uyqgAAy7jHZ1oCAliAKVqcMOMVLVbFQFnNAM6xliZ+0ZhlyqpJU9dzl9zuXtMVx4729JeSU8nHS22K222bbphkWbBB78w1oBvPDcMzGz2JsKXZkCopJPvv8THefppFnZeyZVnQIi3QMyc2OpZhqYtg44EqdxxBhpztcY6RkYtPlLsZT8Jod3rCGtOBwbvhPRjQ9VvWI3xC5+F+/16yiI5OajiIcjxXVmSmq+u6JRQ+73QG2WkMSRWkvFlTAA6kD9uTLslvzUXvOPgDBGAnSR8EQaknuoB5mEyuosfGrkgZsqTiX7B8/XGLtpDilxagiuRONTu4UPbDpEu6oG7z1i1Y2ojD8LeBy8LsS5fYipVfwJkiszabr5QIdZ5Bojf8AGnnFK3bPtLowC0a6bpNw0amBoeMa3GkROYm/6jNqlBfwc6+ggpKTySf6Hg+z9qu8xRNmFFaovgAXDSoPVAOYpTjGo2W9pLusu0I4S7/qI6Fq1wGuFM8RjGZ6X7O9jbJyAdVmvr+l+thwDFh2QZ6M233JjH3f6Mwm8FQEj2dCMKkhak05xWS9PJHdHuma+RaZqjryxzlteHcwU+cSptFDgWunc1VP+VItrLhkyQDmAecc3ORbhEaHEL2kUZ2y1qChKUzCkhSDvGUX5OzGp71eY+kWj6laJSXFjGeG+0ESTLA43RnbZt2VLco5N4Z0yhmmhVs9khGFHCY6SJwQxczDyYilHCu+ACBLajsyK3WU0YEEMONDpxyjpJjlrsSTKXh1h7rA0deTDERSYzZXvAzUHxCntAPzLk3MY8Ibin1/BJ5JR/Ja90XmxzhAxDZ7Qji8jBh4jgRmDEsI00Vi1JWuhxoYjdKZQ6OMSOI8YLNIHmmGPMBGMdtDa6b90Dpk0g09c4LAfPm0y7fqIE7Q2kstS7ECn+W6nd5RZeYaHTOM3Zuj021Ty05v6CHC6aXwcaJuGhbu4PjUXL1OkLNyS9KsrWCxTdozK4pZ1OJ30+Fd7cch5+iWPZ0uUiy0UKq4AcdTXUneaw+z2aWiqiKEVRRVGAAG6Ou7LxHjDZMnLS0l4FhCtvb9zjlhgO4/I6xSaZhTMY55Dl63xZaaCKb+w+vCK01KY5j6fOJFBjtXPv14VGuXPyjon/Cw7T9RmOPfCSXXGmA8YsKARXTQEDA0pQd8AHUOdcQctx+Q5xIkoLWmsckybuNdIZaZ1MBnrAA2bPoaDtizIm1gWInlPdIxzNKRljUFgYB28X7RwRR3nH5+EGpZgOuJZvxMW7Cer4UjJK6RnLimzsS2YVJAzKkd2I8jEUcvlcVzGIHEYiEyRuLExS4yTLJsjn94YdnNqw8TAab0lmaFByR28coozNuz2ODv2IgHzaOTlkfSr9j0P7iumv2AH8Vdj3BJnDHFpbGlNL6V7Q/fGQ6N2wS5hvNMRHFCJZ61RirY50NRjoxjYbdslotQCPNmKgNStQysRkaECh74hsHRhUpQHiSalvAUjqg3wqXZyZMlycr2GW6T2ZEUu7gYLVkapNNbozwJwiWzdJrJMNEnKTuIcHxAjD9NECsksaKXPNjRfAN3x3oRsy+7uRgtFHmflCvDGrMjnbdHpKTUbJgYI2N4pWWxgaQ7aluSzyy7HIYDUnSNhDjseUuWij002+siXcQi++A4cY8papJJFSTWpziW3W57RNaY5qScBoqjID1rD7x3QPbsZRpH0pWGmFWFHQc5HN3b4ciUEcQYkw8QANIgXti1slyXLoZswlZYOSge+7flUGvElRrBSY4UFjkM4q2Wy9ZprDruAB+RBiFHbieJ4Rq9xX3QMfYyoq3GZXUe+D1mOZL/AIqkkmu+GJtN0wnrh/uKMP7lzHMQcdYoWuUDhTDz8Rh3wKV/lsR4q3B0/wDRNLmKwDKwIORBqI60AHsboxaU106imDfqUf8Ar2xV2l0nmSkxs5d8RUOFTShrQkVxwppG8b62Z97j/kVfPgPTyFxJopIB4EkAHvIED5srEg6H94ydv6UtaU9m8sJUqXW+VvXTW6HKkAE0zocDGy2XaknAPQhgBVGzU78MCNxGEJJV2UhkjJXF2clbOD0LrVRkp1wzI78ILVFKDCmlPlDr+FMvEeMV5m4/bsOnKBDkcwkYHLw+0RCYRliN2o5bxC9to337Ya8vURphFNX4hlvGFOe6OJMpn4413A8IV7dnruPr5xxUB4YZceH07tYw0so/ICnrs4xOq69w3RBZ5RBx0y5xLPm3RxgAZaJ13AZ+UDyYe7V5w0kAEkgACpJyAGZMY2MjjuFUsxoB6oN5h+z0Z2vsKbh+Ebue8wNkv7Zw2IRT1AdfzEb/ACg/ZkpAgZZd7qE9g5mBcWra+N3d5xWpGkZO2Oky2ckLTAAkmtMa0HgfDfHXs7jNa8VNfDA+EXNmpRA2r9Y9uQ5gADsi3GUao2jNmzJX3QDuIo3ccYRsi7o0LoCKMARuIBHjFWZYkpUEpTccAOTVFIOJjiwQLIu6O+wG6JpbEqCcCQCeZEUNu2v2VnmPkQhC/qbqr4kQUJerPLekNoEy0TX0vkL+lOqtO6vbG46EbNuSFJzYXjzbHyoOyPP5Ui+6Sx8bqvZXreFY9m2dICoBkAIGbgXcixMuohZjQAVjyTpbtw2hzT3FNEG/e3nGh6c9IL5MiWeqPfI14R5/aTVgo9ExOTOuMfI+yyzQmLN8w64FAUfvHKGMGPo8QmiGx2pXUMp7N0SuYuQEF0iSkMUQy0ucEX3m8BqYWUlFWCVsrq3tHP4EOejONOQ8+UWWMJJYVQqigG6ExpA3ZiVbI5jU5mKxX19f2MSlqn14/cQ2mHDw+Y8o00hZPXqtO4RVtFlVwQwBHHEd5r5iCB9ejh4wxh6+/wBzBdGNJ9mS2h0cQioFOVKeOHjAmVYp9naspyPy40O/qNgeyN86+sanyPnFK02cNXD15d4EVWV9S2ckvo4N8o2n8FPZPSAOAs0BHyr8BPb7p5wcYVEZ61WAZAfOLOzJjolCCy1wrU0GGA3AYwkmu0iuLnF8ZO/kvzZeGPfqPqIhDFTj9jyi6jhhUY/KGPLFKUwhE7LtUQEKR6z498Nl2epzw84d7LHDLU8tDxjlqtYRSxyGQ1O7tjTCxMcKPIb4HTHJNTDf5i+AwyIw4cIci1jGMJFinaZST1ZHUPLOBBycg1ryBy447odaZt8lFy+M/wDgPn3RYRaDCBe4jk26QKlbHeV/284hf9ubV05B63172A3QQse1ZisEnSGRjgHQ+0lE/qADLzZQOMWkHhAm3WxzapEiX+aZN/8ArCsijmWav9sC2a9aCzNXGOQ50pnhzy74YTxjSTVHVFDUVB3gkE86Z9sWEtTjUN+oY9608jFeO1gMTourbx8SkcR1h4Y+ERW61KyFVIJYgEahfiqMxhUdoitWFWMsbk6oRjHfxBtdElyh8TFzyTBe8t/jGxMeXdL7ZftLkYhP6Y/s97/ItAiWR6oi6Iyr9rT8qse0in1ja9KduCQlxD/UcYflGpMYvoralkX576Kbu8nBVA51MDbVaXmuzuesxx3AaKOAhHLbOvHDjFWRu2bHiTXWKdkxcsfR0iS3zKKFGsTWRLqCFLE9IfcEdTfEuG+AD1SzzmQ30NDqNG58eMaCwW1ZnBtV1EZmfOVFLMQAKknQCPPrX/EF1nKbOgKK1DWt6YK0oKZcM4aNroSSXk90mTAoJP7nQQyQhFWb3mz4DQRU2ZMeYiPMUoboNw0qGIxrTCoyi8TGL1O/HgV6VCivMauGnz8okmPprEIPf4/XziooiPX7/Iwjnx9b8fGEPX3p8xCHrd9PCABefj8j5w1vXofMR3y8Pp5QxvX2r8jABG7YeqfTyhhTXu9feHMan1X6jtrHSIAK4k3jEjyxu4D1T5xOqUHOIn9b/kYZKiMtso3CjXlrxFcD31HjFmy21X6pwbUH7xG5z8fv9xFSdLBocjpv7PtCSj5RSM/EguwAqYym3ySQ3w5U3H7wXs+07tFfXC9od1PVYZtCyhgQMVcYEaGM5eCnHyugLsO0G8UORxHDf64QTttpI6ie+RifwKdf1HTvgfKdJIKJR5pw4Dex4Dzwi1ZJFMSasTUk5kmNVPaEm3HRPZpIUACJxDDEslddBGSfgyEfI52CjE0AFSd2HyHnA3ojZy7TbUwN6c/UrmstOqg4ZE9sR9IZxKpIX357XOITN2pupQdsaew2cIioooFAAG4AUh0qiYncn8Ctc9UQsewbzujG2mbeJJ1NeUGduOzNQZLpx3wAnYZ4R0YopKzx/rs05T4rpFiw2uZfuKQy0qQxNRyb6wdVt4K88u8QJ6PyM3PxHw0jUykwiEqcnR6f08ZfaXLsHXd2McMEHsqngd4iu9lYZGvOFK8Qfb7UJct5h+BC3aBgO00EeMWuYSCSasxxO8scfEx7FtqwCbKaW5ZFahLLT4SDrpUDSPMtr7P/AJaYjpMlzwr4qDRwRoyfPfCt0if25Oa9ivapYWVLXiT3D7xVlnSDkwyraoCP7OavwNTPXnALaEp5NVdSp0Oh5GIQaevJ6D9yoevN4D5QURK4RR2VJwqcz5QSRM6aw4qOqnhD7kJBXAR161jALXT7bx/7ZGwzmEcclr5xb/hZ0U9q4tU1eop/pg/Ewzem5chxqdIUKGl+K+WJ5PaQKCgyEJmoIUKHJlcnx9coR9fsfkYUKGMOevVce4wifWv184UKA0Zez9eWPeIidvWH7HwjkKABJ64Q+WsKFAuxZdD3MVph7vXZ5QoUOSKznv7f3HZEDeuPyPgYUKACCdLDChFaimPka/PvioQ6BlViRTI6HgdO3vhQonOKfY8JuL0QbO2fcqzYuczw0HAcIKKsKFGpUtGNtvZwGsWVwFNc/pChQi7LS1HQE2HI9vbZloOKSx7GX2Gsxu1qDkI2QhQorLsnD8UCdqBfd1OXZnAuZYbykHGuA5mOQoOTSJvFCUnaCtgstxQIKoIUKFRYcYY0KFABjOm3SAIplIeucyNI81xzhQolLstHohnSgaHJhkRgRC2k05xLlzWvYXxUYgHAXjChRPyh0XJdnpgMhEoG4QoUMYShd0OhQoAP/9k=');
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+backdrop-filter: blur(10px);
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      .countdown-container {
+        text-align: center;
+      }
+
+      #countdown {
+        font-size: 2.5em;
+      }
+      .athiti-extralight {
+        font-family: "Athiti", sans-serif;
+        font-weight: 200;
+        font-style: normal;
+      }
+
+      .athiti-light {
+        font-family: "Athiti", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+      }
+
+      .athiti-regular {
+        font-family: "Athiti", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .athiti-medium {
+        font-family: "Athiti", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      .athiti-semibold {
+        font-family: "Athiti", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      .athiti-bold {
+        font-family: "Athiti", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .kanit-thin {
+  font-family: "Kanit", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.kanit-extralight {
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.kanit-light {
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.kanit-regular {
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.kanit-medium {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.kanit-semibold {
+  font-family: "Kanit", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.kanit-bold {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.kanit-extrabold {
+  font-family: "Kanit", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.kanit-black {
+  font-family: "Kanit", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.kanit-thin-italic {
+  font-family: "Kanit", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.kanit-extralight-italic {
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.kanit-light-italic {
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.kanit-regular-italic {
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.kanit-medium-italic {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.kanit-semibold-italic {
+  font-family: "Kanit", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.kanit-bold-italic {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.kanit-extrabold-italic {
+  font-family: "Kanit", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.kanit-black-italic {
+  font-family: "Kanit", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+    </style>
+  </head>
+  <body>
+    <img src="https://olympiad.kku.ac.th/img/logoposn.png" alt="" srcset="" style="width: 150px;">
+    <div class="countdown-container">
+      <h1 class="athiti-bold" style="background-color: rgb(0, 153, 255);border-radius: 7px;">POSN COMPUTER</h1>
+      <div id="countdown" class="kanit-semibold"  style="background-color: rgb(255, 94, 94);border-radius: 7px;padding: 20px;"></div>
+    </div><br><br><br><br><br><br>
+
+    <script>
+      // แสดงผลลัพธ์
+      const countdownElement = document.getElementById("countdown");
+      function countdown() {
+        // คำนวณเวลาที่เหลือทุกครั้งที่เรียกใช้ฟังก์ชัน
+        const startDate = new Date();
+        const endDate = new Date("2024-08-28T00:00:00");
+        const totalSeconds = Math.floor((endDate - startDate) / 1000);
+
+        const days = Math.floor(totalSeconds / (3600 * 24));
+        const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        // const seconds = Math.floor(totalSeconds % 60);
+
+        countdownElement.innerHTML = `${days} วัน ${hours
+          .toString()
+          .padStart(2, "0")} ชั่วโมง ${minutes
+          .toString()
+          .padStart(2, "0")} นาที`;
+        // countdownElement.innerHTML = `${days} วัน ${hours
+        // .toString()
+        // .padStart(2, "0")} ชั่วโมง ${minutes
+        // .toString()
+        // .padStart(2, "0")} นาที ${seconds
+        // .toString()
+        // .padStart(2, "0")} วินาที`;
+      }
+
+      // เรียกใช้งานฟังก์ชัน countdown ทุกๆ 1 วินาที
+      setInterval(countdown, 0);
+    </script>
+  </body>
+</html>
